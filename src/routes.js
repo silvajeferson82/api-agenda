@@ -6,5 +6,4 @@ const routes = express.Router();
 routes.post('/contatos', ContatosController.store);
 
 
-
 export default routes;

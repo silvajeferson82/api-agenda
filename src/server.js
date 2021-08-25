@@ -1,7 +1,7 @@
 import express from 'express';
 import routes from './routes';
 
-require('./database');
+import './database';
 
 const app = express();
 

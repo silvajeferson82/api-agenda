@@ -3,13 +3,12 @@ import dbConfig from '../config/database';
 
 import Contatos from '../models/Contatos';
 
-class Database{
+class Connection{
   init(){
-
     this.connection = new Sequelize(dbConfig);
-    
+
     Contatos.init(connection);
   }
 }
 
-export default new Database();
+export default new Connection();
