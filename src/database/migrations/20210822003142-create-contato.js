@@ -7,19 +7,18 @@ module.exports = {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
         allowNull: false,
-        unique: true,
       },
       nome:{
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       sobrenome:{
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       cpf:{
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       nascimento:{
         type: Sequelize.STRING,
@@ -27,26 +26,21 @@ module.exports = {
       },
       peso:{
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       created_at:{
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.NOW,
       },
-      update_at:{
+      updated_at:{
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.NOW,
       }
-
     });
      
   },
 
   down: async (queryInterface, Sequelize) => {
-    
      await queryInterface.dropTable('contatos');
-     
   }
 };

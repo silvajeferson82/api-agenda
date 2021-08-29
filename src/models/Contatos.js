@@ -1,4 +1,4 @@
-import { Model, DataTypes} from 'sequelize' 
+import Sequelize, { Model, DataTypes} from 'sequelize'; 
  class Contatos extends Model{
    static init(sequelize){
      super.init({
@@ -7,19 +7,18 @@ import { Model, DataTypes} from 'sequelize'
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
-        unique: true,
       },
       nome:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       sobrenome:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       cpf:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       nascimento:{
         type: DataTypes.STRING,
@@ -27,25 +26,15 @@ import { Model, DataTypes} from 'sequelize'
       },
       peso:{
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
       },
-      created_at:{
-        type: DataTypes.DATE,
-        allowNull: false,
-        // defaultValue: DataTypes.NOW,
-      },
-      update_at:{
-        type: DataTypes.DATE,
-        allowNull: false,
-        // defaultValue: DataTypes.NOW,
-      }
     },
       {
         sequelize,
         tableName: 'contatos',
       });
 
-      // return this;
+      return this;
   }
  }  
 module.exports = Contatos;
