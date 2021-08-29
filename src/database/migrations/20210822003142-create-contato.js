@@ -1,13 +1,13 @@
-'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('contatos', { 
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
+        unique: true,
       },
       nome:{
         type: Sequelize.STRING,
@@ -22,20 +22,22 @@ module.exports = {
         allowNull: false,
       },
       nascimento:{
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       peso:{
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.STRING,
         allowNull: true
       },
       created_at:{
         type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW,
       },
       update_at:{
         type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW,
       }
 
     });

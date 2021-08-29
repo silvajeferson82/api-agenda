@@ -1,9 +1,13 @@
-import express from 'express';
+import { Router } from 'express';
 import ContatosController from './controllers/ContatosController';
 
-const routes = express.Router();
+const routes = Router();
 
-routes.post('/contatos', ContatosController.store);
+routes.get('/teste', (req, res)=>{
+  return res.send("Teste de Rota...")
+});
+
+routes.post('/create', ContatosController.store);
 
 
 export default routes;

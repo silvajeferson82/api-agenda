@@ -1,12 +1,17 @@
-// import express from 'express';
-// import Sequelize from 'sequelize';
+
 import Contato from '../models/Contatos';
 
 class ContatosController {
   async store(req, res){
-    const { nome, sobrenome, cpf, nascimento, peso } = req.body;
-    console.log(req.body);
-
+    const { 
+      nome, 
+      sobrenome, 
+      cpf, 
+      nascimento, 
+      peso 
+    } = req.body;
+    
+    try{
     const contato = await Contato.create({
       nome,
       sobrenome,
@@ -15,7 +20,15 @@ class ContatosController {
       peso
     });
 
-    return res.json(contato);
+    
+      if(!contato){
+        return res.status(400).json({message: "Erro ao criar contato."});
+      }
+      return contato;
+    }catch(err){
+      return res.status(500).json({message: "ERR0 2",err})
+    }
+      
   }
 }
 

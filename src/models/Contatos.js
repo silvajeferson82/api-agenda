@@ -1,24 +1,51 @@
- 
- module.exports = function(sequelize, Model, DataTypes){
-   return sequelize.define(
-    'contatos',{
-      nome:{ 
-        types:DataTypes.STRING,
+import { Model, DataTypes} from 'sequelize' 
+ class Contatos extends Model{
+   static init(sequelize){
+     super.init({
+      id: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
+        unique: true,
+      },
+      nome:{
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       sobrenome:{
-        types: DataTypes.STRING,
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      cpf: {
-        types:DataTypes.STRING,
+      cpf:{
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-      nascimento: {
-        type:DataTypes.DATE
+      nascimento:{
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       peso:{
-        type: DataTypes.DECIMAL,
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      created_at:{
+        type: DataTypes.DATE,
+        allowNull: false,
+        // defaultValue: DataTypes.NOW,
+      },
+      update_at:{
+        type: DataTypes.DATE,
+        allowNull: false,
+        // defaultValue: DataTypes.NOW,
       }
-    },{
-      tableName: 'contatos'
-    });
+    },
+      {
+        sequelize,
+        tableName: 'contatos',
+      });
+
+      // return this;
   }
-// export default new Contatos;
+ }  
+module.exports = Contatos;
