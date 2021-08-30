@@ -3,7 +3,7 @@ import dbConfig from '../config/database';
 
 import Contato from '../models/Contatos';
 
-const models = [ Contato];
+const models = [ Contato ];
 class Connection{
   constructor(){
     this.init();
