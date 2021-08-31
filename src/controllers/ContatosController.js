@@ -2,6 +2,13 @@
 import Contato from '../models/Contatos';
 
 class ContatosController {
+  async show(req, res){
+    const contato = await Contato.findAll();
+
+    console.log({contato});
+    return res.json({contato});
+  }
+
   async store(req, res){
     const { 
       nome, 
@@ -10,6 +17,12 @@ class ContatosController {
       nascimento, 
       peso 
     } = req.body;
+
+    const contatoExist = await Contato.findOne({ where: {cpf}});
+
+    if(contatoExist){
+      return res.status(400).json({ message: 'Contato já existe!'});
+    }
 
     const contato = await Contato.create({
       nome,

@@ -9,5 +9,7 @@ routes.get('/teste', (req, res)=>{
 
 routes.post('/create', ContatosController.store);
 
+routes.get('/contatos', ContatosController.show);
+
 
 export default routes;
