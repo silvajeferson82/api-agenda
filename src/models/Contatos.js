@@ -25,7 +25,7 @@ import Sequelize, { Model, DataTypes} from 'sequelize';
         allowNull: true,
       },
       peso:{
-        type: DataTypes.STRING,
+        type: DataTypes.DECIMAL,
         allowNull: true,
       },
     },

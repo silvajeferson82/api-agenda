@@ -25,7 +25,7 @@ module.exports = {
         allowNull: true,
       },
       peso:{
-        type: Sequelize.STRING,
+        type: Sequelize.DECIMAL(10,2),
         allowNull: true,
       },
       created_at:{

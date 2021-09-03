@@ -1,5 +1,5 @@
 
-import Contato from '../models/Contatos';
+import Contato from '../../models/Contatos';
 
 class ContatosController {
   async show(req, res){
@@ -17,6 +17,8 @@ class ContatosController {
       nascimento, 
       peso 
     } = req.body;
+
+    console.log(req.body);
 
     const contatoExist = await Contato.findOne({ where: {cpf}});
 
