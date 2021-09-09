@@ -1,10 +1,10 @@
 
 module.exports = {
-  dialect: 'postgres',
+  dialect: 'mysql',
   host: 'localhost',
-  username: 'postgres',
-  password: 'root',
-  database: 'agenda',
+  username: 'root',
+  password: '',
+  database: 'agenda_api',
   define:{
     timestamps: true,
     underscored: true,
